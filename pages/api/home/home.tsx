@@ -387,14 +387,14 @@ const Home = ({
           </div> */}
 
           <div className="flex justify-stretch h-[calc(100vh-96px)] w-full mt-[96px] sm:pt-0 relative">
-            <div className="w-[224px] h-full flex max-[1024px]:left-[-224px]  max-[1024px]:absolute z-10 hover:left-0 transition-all">
+            <div className="min-w-[224px] w-[224px] h-full flex max-[1024px]:left-[-224px]  max-[1024px]:absolute z-10 hover:left-0 transition-all">
               <div className="absolute right-[-40px] top-0 p-2">
                 <IconChevronsRight className="text-[30px] font-bold text-black" />
               </div>
               <Chatbar />
             </div>
-            <div className="w-[calc(100% - 224px)] flex justify-center max-[1024px]:w-full">
-              <div className="flex w-8/12 max-[1024px]:w-full max-[800px]:w-[calc(100% - 290px)]]">
+            <div className="w-[calc(100%-224px)] flex justify-center max-[1024px]:w-full">
+              <div className="flex w-8/12 max-[1024px]:w-full max-[800px]:w-[100%]">
                 <Chat stopConversationRef={stopConversationRef} />
               </div>
               <div className="w-4/12 h-full min-w-[290px] flex max-[800px]:w-[290px] max-[800px]:right-[-290px]  max-[800px]:absolute z-10 hover:right-0 transition-all">
