@@ -50,7 +50,7 @@ const Sidebar = <T,>({
 
   return (
     <div
-      className={`fixed top-0 ${side}-0 pt-4 z-1 flex h-full w-full flex-none flex-col space-y-2 bg-slate-100 p-2 text-[14px] transition-all sm:relative sm:top-0 shadow-md`}
+      className={`top-0 ${side}-0 pt-4 z-1 flex h-full w-full flex-none flex-col space-y-2 bg-slate-100 p-2 text-[14px] transition-all sm:relative sm:top-0 shadow-md`}
     >
       <div className="flex items-center w-full">
         <button
