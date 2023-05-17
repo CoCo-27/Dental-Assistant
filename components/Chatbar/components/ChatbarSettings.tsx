@@ -36,6 +36,8 @@ export const ChatbarSettings = () => {
     handleApiKeyChange,
   } = useContext(ChatbarContext);
 
+  const handleLogOut = () => {};
+
   return (
     <div className="flex flex-col items-center space-y-1 border-t border-black/20 pt-1 text-sm">
       {conversations.length > 0 ? (
@@ -45,7 +47,7 @@ export const ChatbarSettings = () => {
       <SidebarButton
         text={t('Log out')}
         icon={<IconLogout size={18} />}
-        onClick={() => handleExportData()}
+        onClick={() => handleLogOut()}
       />
       {/* <Import onImport={handleImportConversations} />
 

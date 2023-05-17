@@ -151,7 +151,7 @@ export const ChatMessage: FC<Props> = memo(
 
           <div className="mt-[-2px] w-full dark:prose-invert">
             {message.role === 'user' ? (
-              <div className="flex flex-row float-right md:gap-6 whitespace-pre-wrap dark:prose-invert flex-1">
+              <div className="flex flex-row float-right gap-6 whitespace-pre-wrap dark:prose-invert flex-1">
                 <div className="relative max-w-screen-lg px-4 py-2 text-gray-700 bg-[#d4f8ff] rounded-t-lg rounded-bl-lg">
                   {message.content}
                 </div>
@@ -218,13 +218,13 @@ export const ChatMessage: FC<Props> = memo(
                     },
                   }}
                 >
-                  {/* {`${message.content}${
+                  {`${message.content}${
                     messageIsStreaming &&
                     messageIndex ==
                       (selectedConversation?.messages.length ?? 0) - 1
                       ? '`▍`'
                       : ''
-                  }`} */}
+                  }`}
                 </MemoizedReactMarkdown>
 
                 <div className="md:-mr-8 ml-1 md:ml-0 flex flex-col md:flex-row gap-4 md:gap-1 items-center md:items-start justify-end md:justify-start">
