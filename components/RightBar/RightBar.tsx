@@ -7,7 +7,7 @@ const Rightbar = <T,>() => {
 
   return (
     <div
-      className={`pt-4 z-1 flex h-full w-full flex-none flex-col space-y-2 bg-white px-4 gap-4 text-[14px] transition-all sm:relative sm:top-0 shadow-md`}
+      className={`top-0 right-0 pt-4 z-1 flex h-full w-full flex-none flex-col space-y-2 bg-white px-4 gap-4 text-[14px] transition-all sm:relative sm:top-0 shadow-md`}
     >
       <div className="flex flex-col">
         <div className="flex flex-row gap-4 items-center">

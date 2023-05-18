@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Logo from './Logo.svg';
 
+import { useAuth } from '@/context/AuthContext';
+
 const Header = () => {
+  const { logOut } = useAuth();
+  const router = useRouter();
+
   return (
-    <header className="w-full py-1 fixed h-[96px] flex items-center font-semibold justify-between bg-gradient-to-r from-[#f5f5f5] to-[#00000033] shadow-md z-10 px-3 transition-all duration-300">
+    <header className="w-full py-1 fixed h-[96px] flex items-center font-semibold justify-between bg-gradient-to-r from-slate-300 to-white  shadow-md z-10 px-3 transition-all duration-300">
       <div
         id="logo"
         className="lg:text-xl p-2 mr-4 inline-flex items-center font-serif font-bold"
@@ -19,11 +25,15 @@ const Header = () => {
 
       <div className="w-full grow inline-flex lg:flex-grow flex-row-reverse">
         <div className={`lg:inline-flex lg:flex-row flex flex-col`}>
-          <Link href="/">
-            <span className="lg:inline-flex px-3 py-2 rounded hover:bg-gray-400">
-              Contact Us
-            </span>
-          </Link>
+          <button
+            className="lg:inline-flex px-3 text-black py-2 rounded hover:bg-gray-400 hover:text-white"
+            onClick={() => {
+              logOut();
+              router.push('/');
+            }}
+          >
+            Log out
+          </button>
         </div>
         {/* <button
           onClick={() => setShowNav(!showNav)}

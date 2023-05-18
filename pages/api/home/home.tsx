@@ -32,6 +32,7 @@ import { FolderInterface, FolderType } from '@/types/folder';
 import { OpenAIModelID, OpenAIModels, fallbackModelID } from '@/types/openai';
 import { Prompt } from '@/types/prompt';
 
+import ProtectedRoute from '@/components/Auth/ProtectedRoute';
 import { Chat } from '@/components/Chat/Chat';
 import { Chatbar } from '@/components/Chatbar/Chatbar';
 import Header from '@/components/Header/Header';
@@ -362,6 +363,7 @@ const Home = ({
         handleUpdateConversation,
       }}
     >
+      {/* <ProtectedRoute> */}
       <Head>
         <title>Dental Assistant</title>
         <meta name="description" content="ChatGPT but better." />
@@ -407,6 +409,7 @@ const Home = ({
           </div>
         </main>
       )}
+      {/* </ProtectedRoute> */}
     </HomeContext.Provider>
   );
 };
