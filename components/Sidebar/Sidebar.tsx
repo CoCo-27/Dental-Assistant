@@ -2,6 +2,11 @@ import { IconFolderPlus, IconMistOff, IconPlus } from '@tabler/icons-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import {
+  CloseSidebarButton,
+  OpenSidebarButton,
+} from './components/OpenCloseButton';
+
 import Search from '../Search';
 
 interface Props<T> {
@@ -21,6 +26,7 @@ interface Props<T> {
 }
 
 const Sidebar = <T,>({
+  isOpen,
   addItemButtonTitle,
   side,
   items,
@@ -48,7 +54,7 @@ const Sidebar = <T,>({
     e.target.style.background = 'none';
   };
 
-  return (
+  return  (
     <div
       className={`top-0 ${side}-0 pt-4 z-1 flex h-full w-full flex-none flex-col space-y-2 bg-slate-100 p-2 text-[14px] transition-all sm:relative sm:top-0 shadow-md`}
     >
@@ -103,7 +109,7 @@ const Sidebar = <T,>({
       </div>
       {footerComponent}
     </div>
-  );
+  ) 
 };
 
 export default Sidebar;

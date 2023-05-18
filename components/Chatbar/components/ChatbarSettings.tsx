@@ -1,7 +1,8 @@
-import { IconLogout } from '@tabler/icons-react';
+import { IconLogout, IconSelect } from '@tabler/icons-react';
 import { useContext, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 import HomeContext from '@/pages/api/home/home.context';
 
@@ -14,9 +15,13 @@ import ChatbarContext from '../Chatbar.context';
 import { ClearConversations } from './ClearConversations';
 import { PluginKeys } from './PluginKeys';
 
+import { useAuth } from '@/context/AuthContext';
+
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
   const [isSettingDialogOpen, setIsSettingDialog] = useState<boolean>(false);
+  const { logOut } = useAuth();
+  const router = useRouter();
 
   const {
     state: {
@@ -36,8 +41,6 @@ export const ChatbarSettings = () => {
     handleApiKeyChange,
   } = useContext(ChatbarContext);
 
-  const handleLogOut = () => {};
-
   return (
     <div className="flex flex-col items-center space-y-1 border-t border-black/20 pt-1 text-sm">
       {conversations.length > 0 ? (
@@ -45,13 +48,25 @@ export const ChatbarSettings = () => {
       ) : null}
 
       <SidebarButton
-        text={t('Log out')}
-        icon={<IconLogout size={18} />}
-        onClick={() => handleLogOut()}
+        text={t('Select Model')}
+        icon={<IconSelect size={18} />}
+        onClick={() => {setIsSettingDialog(true);
+          localStorage.setItem('isOpenDialog', 'true');
+        }}
       />
-      {/* <Import onImport={handleImportConversations} />
+
+      <Import onImport={handleImportConversations} />
 
       <SidebarButton
+        text={t('Log out')}
+        icon={<IconLogout size={18} />}
+        onClick={() => {
+          logOut();
+          router.push('/');
+        }}
+      />
+
+      {/* <SidebarButton
         text={t('Export data')}
         icon={<IconFileExport size={18} />}
         onClick={() => handleExportData()}
@@ -69,12 +84,13 @@ export const ChatbarSettings = () => {
 
       {!serverSidePluginKeysSet ? <PluginKeys /> : null} */}
 
-      {/* <SettingDialog
+      <SettingDialog
         open={isSettingDialogOpen}
         onClose={() => {
           setIsSettingDialog(false);
+          localStorage.setItem('isOpenDialog', 'false');
         }}
-      /> */}
+      />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import LoginForm from '@/components/Auth/LoginForm';
+import RegistrationForm from '@/components/Auth/RegistrationForm';
 
 const register = () => {
   return (
@@ -18,7 +18,7 @@ const register = () => {
       </Head>
 
       <main className="bg-gradient-to-tr from-slate-500 to-white min-h-screen">
-        <LoginForm />
+        <RegistrationForm />
       </main>
     </>
   );

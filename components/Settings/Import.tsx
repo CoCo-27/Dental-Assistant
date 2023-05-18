@@ -20,14 +20,16 @@ export const Import: FC<Props> = ({ onImport }) => {
         className="sr-only"
         tabIndex={-1}
         type="file"
-        accept=".json"
+        accept=".pdf"
         onChange={(e) => {
           if (!e.target.files?.length) return;
-
+          
           const file = e.target.files[0];
+          console.log('!!!!! = ', file);
           const reader = new FileReader();
           reader.onload = (e) => {
             let json = JSON.parse(e.target?.result as string);
+            console.log(json);
             onImport(json);
           };
           reader.readAsText(file);

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
